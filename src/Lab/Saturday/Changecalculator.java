@@ -27,16 +27,49 @@ public class Changecalculator {
 		
 		int pay50, pay20, pay10, pay5, pay2, pay1;
 		
-		Scanner sc = new Scanner(System.in);
+		// input
+		// declare a variable of type Scanner
+		Scanner input;
 		
-		System.out.println("Price is: ");
-		price = sc.next();
+		// create an object of type Scanner to accept the user's input from the keyboard
+		input = new Scanner(System.in);		
 		
-		System.out.println("Received: " + );
-		received = sc.next();
-		 
-		System.out.println("Change: "+ (price - received);
-		change = sc.next();
+		System.out.println("Enter total price:");
+		
+		price = input.nextInt(); 
+		
+		// read the total price provided by the user via keyboard
+		// above we saved in the variable price the total price entered by the user 		
+		System.out.println("Enter amount received:");
+		
+		// save the money given by the user
+		received = input.nextInt();		
+		
+		// processing + output
+		// calculate the change owed to the customer
+		change = received - price;
+		
+		System.out.println("Give to the customer " + change + "EUR");		
+		
+		// calculate the number of 50 EUR notes to be given
+		pay50 = change / 50;
+		
+		System.out.println("50EUR notes: " + pay50);		
+		
+		// update the current change
+		// we must update the remaining change to be given to the customer because we have already established the number of 50 EUR note(s) to be given
+		// if we do not update the change we would give more money back to the customer than required
+		// we can save/store the remaining received to be paid in the same variable change because we do not use further the value currently stored in the variable change (therefore we overwrite the existing value) as that value contains also the amount received of 50 EUR note(s) already accounted for in the variable pay50
+		change = change - 50 * pay50;		
+		
+		// calculate the number of EUR 20 notes to be given
+		pay20 = change/20;
+		System.out.println("20EUR notes: " + pay20);		
+		
+		// update the current change
+		change = change - 20 * pay20;		
+		
+		System.out.println("Test");
 
 	}
 
